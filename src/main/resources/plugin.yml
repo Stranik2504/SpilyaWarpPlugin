@@ -1,0 +1,24 @@
+name: SpilyaWarps
+version: '${project.version}'
+main: org.spilya.warpplugin.SpilyaWarps
+description: Обычный плагин на варпы
+author: Spilya
+website: https://github.com/Spilya
+api-version: '1.20'
+commands:
+
+  warps:
+    permission: spilyawarp.set
+
+  warpd:
+
+    permission: spilyawarp.delete
+
+  warp:
+    permission: spilyawarp.teleport
+
+  warpdn:
+    permission: spilyawarp.delete
+
+  warpl:
+    permission: spilyawarp.teleport
