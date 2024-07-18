@@ -15,35 +15,21 @@ public class OwnerTab implements TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String s, String[] args) {
-        List<String> emtpyList = new ArrayList<>();
+        if (!(sender instanceof Player)) return new ArrayList<>();
+        if (args.length != 1) return new ArrayList<>();
 
-        if (sender instanceof Player){
-            YamlConfiguration warpFile = YAMLwarps.getConfig();
+        YamlConfiguration warpFile = YAMLwarps.getConfig();
+        ArrayList<String> playerList = new ArrayList<>();
 
-            if (args.length == 1){
-                ArrayList<String> playerList = new ArrayList<>();
-                warpFile.getKeys(false).forEach(key -> {
-                    String warpOwner = warpFile.get(key + ".owner").toString();
-                    if (!playerList.contains(warpOwner)){
-                        playerList.add(warpOwner);
-                    }
-                });
-                return playerList;
+        warpFile.getKeys(false).forEach(key -> {
+            String warpOwner = warpFile.get(key + ".owner").toString();
 
-            }else {
-                return emtpyList;
-            }
+            if (playerList.contains(warpOwner)) return;
 
+            if (args[0].trim().isEmpty()) playerList.add(warpOwner);
+            else if (warpOwner.contains(args[0])) playerList.add(warpOwner);
+        });
 
-
-
-
-        }else {
-            return emtpyList;
-
-        }
-
-
-
+        return playerList;
     }
 }

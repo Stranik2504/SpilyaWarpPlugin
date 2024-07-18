@@ -12,11 +12,6 @@ import java.util.List;
 public class EmptyTab implements TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String s, String[] args) {
-        ArrayList<String> emptyList = new ArrayList<>();
-        return emptyList;
-
-
-
-
+        return new ArrayList<>();
     }
 }

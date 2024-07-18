@@ -15,11 +15,14 @@ commands:
   warp:
     permission: spilyawarp.teleport
   
-  listwarp:
+  warplist:
     permission: spilyawarp.teleport
 
   delpwarps:
     permission: spilyawarp.delete
+    
+  warpinfo:
+    permission: spilyawarp.info
 
 permissions:
   spilyawarp.commands:
@@ -30,3 +33,4 @@ permissions:
       - spilyawarp.teleport
       - spilyawarp.delete
       - spilyawarp.teleport
+      - spilyawarp.info

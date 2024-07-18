@@ -2,6 +2,7 @@ org\spilya\warpplugin\tabCompliters\WarpTab.class
 org\spilya\warpplugin\commands\WarpDCommand.class
 org\spilya\warpplugin\commands\WarpSCommand.class
 org\spilya\warpplugin\tabCompliters\OwnerTab.class
+org\spilya\warpplugin\commands\WarpInfoCommand.class
 org\spilya\warpplugin\YAMLwarps.class
 org\spilya\warpplugin\commands\WarpLCommand.class
 org\spilya\warpplugin\commands\WarpDNCommand.class

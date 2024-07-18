@@ -14,14 +14,16 @@ public final class SpilyaWarps extends JavaPlugin {
         this.getCommand("warp").setExecutor(new WarpCommand());
         this.getCommand("setwarp").setExecutor(new WarpSCommand());
         this.getCommand("delwarp").setExecutor(new WarpDCommand());
-        this.getCommand("listwarp").setExecutor(new WarpLCommand());
+        this.getCommand("warplist").setExecutor(new WarpLCommand());
         this.getCommand("delpwarps").setExecutor(new WarpDNCommand());
+        this.getCommand("warpinfo").setExecutor(new WarpInfoCommand());
 
         this.getCommand("warp").setTabCompleter(new WarpTab());
         this.getCommand("setwarp").setTabCompleter(new EmptyTab());
         this.getCommand("delwarp").setTabCompleter(new WarpTab());
-        this.getCommand("listwarp").setTabCompleter(new OwnerTab());
+        this.getCommand("warplist").setTabCompleter(new OwnerTab());
         this.getCommand("delpwarps").setTabCompleter(new OwnerTab());
+        this.getCommand("warpinfo").setTabCompleter(new EmptyTab());
     }
 
     @Override

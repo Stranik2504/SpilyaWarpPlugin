@@ -2,7 +2,9 @@ package org.spilya.warpplugin.commands;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.format.TextColor;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -40,9 +42,49 @@ public class WarpLCommand implements CommandExecutor {
 
                     player.sendMessage(Component.text("Варпы игрока " + target + ":", TextColor.color(181, 181, 181)));
                     if (player.hasPermission("spilyawarp.teleport")) {
+                        YamlConfiguration warpsFile = YAMLwarps.getConfig();
+                        
                         //Если есть пермишен на телепорт то можно телепортироваться по клику в чате
-                        finalList.stream().forEach(warp -> player.sendMessage(Component.text(warp, TextColor.color(181, 181, 181))
-                                .clickEvent(ClickEvent.runCommand("/warp " + warp))));
+                        finalList.stream().forEach(warp -> {
+                            String nameWorld = Bukkit.getWorld(warpsFile.get(warp + ".world").toString()).getName();
+                            double x = Double.parseDouble(warpsFile.get(warp + ".x").toString());
+                            double y = Double.parseDouble(warpsFile.get(warp + ".y").toString());
+                            double z = Double.parseDouble(warpsFile.get(warp + ".z").toString());
+                            TextColor color;
+                            String name;
+
+                            switch (nameWorld) {
+                                case "world":
+                                    // Overworld
+                                    color = TextColor.color(86, 255, 85);
+                                    name = "Overworld";
+                                    break;
+                                case "world_nether":
+                                    // Nether
+                                    color = TextColor.color(255, 85, 85);
+                                    name = "Nether";
+                                    break;
+                                case "world_the_end":
+                                    // End
+                                    color = TextColor.color(255, 84, 255);
+                                    name = "End";
+                                    break;
+                                default:
+                                    color = TextColor.color(181, 181, 181);
+                                    name = "Else";
+                                    break;
+                            }
+
+                            player.sendMessage(
+                                    Component
+                                            .text(warp, color)
+                                            .clickEvent(ClickEvent.runCommand("/warp " + warp))
+                                            .hoverEvent(HoverEvent.showText(
+                                                    Component
+                                                            .text("Телепортироваться (Корды: " + (int)x + " " + (int)y + " " + (int)z + "; Мир: " + name + ")", color)
+                                            ))
+                            );
+                        });
                     } else {
                         //Низя кликать потому что нету прав
                         finalList.stream().forEach(warp -> player.sendMessage(Component.text(warp, TextColor.color(181, 181, 181))));
