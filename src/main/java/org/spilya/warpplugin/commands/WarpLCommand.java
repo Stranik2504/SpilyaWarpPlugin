@@ -8,7 +8,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 import org.spilya.warpplugin.YAMLwarps;
 
 import java.util.ArrayList;
@@ -55,7 +54,7 @@ public class WarpLCommand implements CommandExecutor {
 
             }else {
                 // Ошибка синтексиса
-                player.sendMessage(Component.text("Используй: /warpl [Ник]", TextColor.color(227, 39, 57)));
+                player.sendMessage(Component.text("Используй: /listwarp [Ник]", TextColor.color(227, 39, 57)));
             }
         }else {
             //Только в игре можно использовать

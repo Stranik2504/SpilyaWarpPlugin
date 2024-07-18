@@ -10,22 +10,18 @@ public final class SpilyaWarps extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        YAMLwarps.getConfig(); // Создание конфига с варпами
+        org.spilya.warpplugin.YAMLwarps.getConfig(); // Создание конфига с варпами
         this.getCommand("warp").setExecutor(new WarpCommand());
-        this.getCommand("warps").setExecutor(new WarpSCommand());
-        this.getCommand("warpd").setExecutor(new WarpDCommand());
-        this.getCommand("warpdn").setExecutor(new WarpDNCommand());
-        this.getCommand("warpl").setExecutor(new WarpLCommand());
+        this.getCommand("setwarp").setExecutor(new WarpSCommand());
+        this.getCommand("delwarp").setExecutor(new WarpDCommand());
+        this.getCommand("listwarp").setExecutor(new WarpLCommand());
+        this.getCommand("delpwarps").setExecutor(new WarpDNCommand());
 
         this.getCommand("warp").setTabCompleter(new WarpTab());
-        this.getCommand("warps").setTabCompleter(new EmptyTab());
-        this.getCommand("warpd").setTabCompleter(new WarpTab());
-        this.getCommand("warpdn").setTabCompleter(new OwnerTab());
-        this.getCommand("warpl").setTabCompleter(new OwnerTab());
-
-
-
-
+        this.getCommand("setwarp").setTabCompleter(new EmptyTab());
+        this.getCommand("delwarp").setTabCompleter(new WarpTab());
+        this.getCommand("listwarp").setTabCompleter(new OwnerTab());
+        this.getCommand("delpwarps").setTabCompleter(new OwnerTab());
     }
 
     @Override

@@ -51,7 +51,7 @@ public class WarpSCommand implements CommandExecutor {
                         }
                     }
                 } else {
-                    Component syntaxError = Component.text("Используй: /warps [Варп]", TextColor.color(227, 39, 57));
+                    Component syntaxError = Component.text("Используй: /setwarp [Варп]", TextColor.color(227, 39, 57));
                     player.sendMessage(syntaxError);
                 }
             }else {

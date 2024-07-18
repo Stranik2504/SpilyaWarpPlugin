@@ -38,7 +38,7 @@ public class WarpDCommand implements CommandExecutor {
                     }
                     //Не верное количество компонентов
                 } else {
-                    player.sendMessage(Component.text("Изпользуй: /warpd [Варп]", TextColor.color(227, 39, 57)));
+                    player.sendMessage(Component.text("Изпользуй: /delwarp [Варп]", TextColor.color(227, 39, 57)));
                 }
             } else {
                 // Нет прав на команду

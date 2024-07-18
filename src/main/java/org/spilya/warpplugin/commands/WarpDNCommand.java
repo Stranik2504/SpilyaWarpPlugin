@@ -1,7 +1,6 @@
 package org.spilya.warpplugin.commands;
 
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,7 +11,6 @@ import org.spilya.warpplugin.YAMLwarps;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class WarpDNCommand implements CommandExecutor {
     @Override
@@ -45,7 +43,7 @@ public class WarpDNCommand implements CommandExecutor {
 
                     }else {
                         // не верный ситексис
-                        player.sendMessage(Component.text("Испльзуй: /warpdn [Ник]", TextColor.color(227, 39, 57)));;
+                        player.sendMessage(Component.text("Испльзуй: /delpwarps [Ник]", TextColor.color(227, 39, 57)));;
 
                     }
                 } else {

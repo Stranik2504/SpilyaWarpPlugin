@@ -1,24 +1,32 @@
 name: SpilyaWarps
-version: '1.0'
+version: '2.0'
 main: org.spilya.warpplugin.SpilyaWarps
 description: Обычный плагин на варпы
-author: Spilya
-website: https://github.com/Spilya
-api-version: '1.20'
-commands:
+author: Spilya and Stranik
+api-version: '1.21'
 
-  warps:
+commands:
+  setwarp:
     permission: spilyawarp.set
 
-  warpd:
-
+  delwarp:
     permission: spilyawarp.delete
 
   warp:
     permission: spilyawarp.teleport
+  
+  listwarp:
+    permission: spilyawarp.teleport
 
-  warpdn:
+  delpwarps:
     permission: spilyawarp.delete
 
-  warpl:
-    permission: spilyawarp.teleport
+permissions:
+  spilyawarp.commands:
+    default: op
+    children:
+      - spilyawarp.set
+      - spilyawarp.delete
+      - spilyawarp.teleport
+      - spilyawarp.delete
+      - spilyawarp.teleport
